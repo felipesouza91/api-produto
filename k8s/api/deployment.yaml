@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: felipedb91/api-produto-sm-kube-dev:v1
+          image: felipedb91/api-produto-sm-kube-dev
           ports:
           - containerPort: 8080
           env:
