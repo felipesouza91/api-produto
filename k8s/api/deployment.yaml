@@ -1,0 +1,25 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata: 
+  name: api
+spec:
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "8080"
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: felipedb91/api-produto-sm-kube-dev:v1
+          ports:
+          - containerPort: 8080
+          env:
+            - name: MONGODB_URI
+              value: mongodb://mongouser:mongopwd@mongodb-service:27017/admin
