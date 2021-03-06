@@ -4,6 +4,7 @@ metadata:
   name: api
 spec:
   selector:
+    replicas: 10
     matchLabels:
       app: api
   template:
